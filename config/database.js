@@ -2,9 +2,9 @@
 module.exports = {
     'connection': {
         'host': 'localhost',
-        'user': 'user',
-        'password': 'password',
-        'database': 'my_schema2',
+        'user': 'USERNAME', //edit
+        'password': 'PASSWORD', //edit
+        'database': 'my_schema2'
     },
     'database': 'my_schema2',
     'users_table': 'users',
@@ -18,3 +18,4 @@ module.exports = {
     'rel3': 'under',
     'rel4': 'assigned'
 };
+
