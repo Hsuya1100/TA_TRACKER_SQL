@@ -2,8 +2,8 @@
 module.exports = {
     'connection': {
         'host': 'localhost',
-        'user': 'user', //edit
-        'password': 'password', //edit
+        'user': 'USERNAME', //edit
+        'password': 'PASSWORD', //edit
         'database': 'my_schema2'
     },
     'database': 'my_schema2',
@@ -16,5 +16,6 @@ module.exports = {
     'rel1': 'takes',
     'rel2': 'teaches',
     'rel3': 'under',
-    'rel4': 'assigned'
+    'rel4': 'assigned',
+    'rel5': 'manage'
 };
