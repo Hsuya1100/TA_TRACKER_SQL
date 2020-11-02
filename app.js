@@ -61,9 +61,8 @@ app.use("/courses",CourseRoutes);
 
 
 // ===========================================_Server Listing_=================================
-app.listen(config.PORT,config.IP,function(){
-	console.log("Server On !!");
-});
+app.listen(process.env.PORT);
+
 
 // -----------COVER PAGE------------------------
 app.get('/', function(req, res) {
