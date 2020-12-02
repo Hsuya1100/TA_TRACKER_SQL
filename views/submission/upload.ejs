@@ -332,6 +332,7 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
                     <h1 class="h3 mb-4 text-gray-800">Submission Upload</h1>
+
                     <%	if(error && error.length>0){ %>
                         <div class="container">
                             <div class="alert alert-danger" role="alert">
@@ -356,50 +357,68 @@
 
                     <!-- Page Heading -->
             <!-- End of Main Content -->
-            <div class="container col-sm-12" id="mainform">
-                <div id="signupbox" style=" margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                                     
-                    <div class="panel panel-info">
-                        <div class="panel-heading">
-                            <div class="panel-title">Import Submissions</div>
-                        </div> 
-                        <div class="panel-body" >
-                            <form class="form-horizontal" role="form" method="post" action="/courses/<%=Cid%>/assignment/<%=Aid%>/submission/import" enctype="multipart/form-data">
-                                <% if (message.length > 0) { %>
-                                    <div class="alert alert-success col-sm-12"><%= message %></div>
-                                <% } %>
-                                <div id="signupalert" style="display:none" class="alert alert-danger">
-                                    <p>Error:</p>
-                                    <span></span>
+            <div class="container-fluid">
+                <div class="row">
+
+                    <!-- course Card Example -->
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card border-left-primary shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                            Import Submission</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">
+
+                                            <div class="panel-body" >
+                                                <form class="form-horizontal" role="form" method="post" action="/courses/<%=Cid%>/assignment/<%=Aid%>/submission/import" enctype="multipart/form-data">
+                            
+                                               
+                                                    <div class="form-group">
+                                                        <!-- <label for="mob_no" class="col-md-3 control-label">Profile Image</label> -->
+                                                        <!-- <div class="col-sm-9"> -->
+                                                            <input class="form-control" type="file" name="uploaded_image" accept=""/>
+                                                        <!-- </div> -->
+                                                    </div>                                
+                                                
+                                                    <div class="form-group">
+                                                        <!-- Button -->                                       
+                                                        <!-- <div class="col-md-offset-3 col-md-9"> -->
+                                                            <button id="btn-signup" type="submit" class="btn btn-md btn-primary"><i class="icon-hand-right"></i> &nbsp Upload</button>
+                                                        <!-- </div> -->
+                                                    </div>  
+                                                </form>
+                                            </div>
+
+
+
+                                        </div>
+
+
+                                    </div>
+                                    <!-- <div class="col-auto">
+                                        <i class="fas fa-book fa-2x text-gray-300"></i>
+                                    </div> -->
                                 </div>
-                               
-                                <div class="form-group">
-                                    <label for="mob_no" class="col-md-3 control-label">Profile Image</label>
-                                    <div class="col-sm-9">
-                                        <input class="form-control" type="file" name="uploaded_image" accept=""/>
-                                    </div>
-                                </div>                                
-                                
-                                <div class="form-group">
-                                    <!-- Button -->                                       
-                                    <div class="col-md-offset-3 col-md-9">
-                                        <button id="btn-signup" type="submit" class="btn btn-info"><i class="icon-hand-right"></i> &nbsp Upload</button>
-                                    </div>
-                                </div>  
-                            </form>
-                         </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Footer -->
-            <div class="row">
-                <footer class="sticky-footer bg-white">
-                    <div class="container my-auto">
-                        <div class="copyright text-center my-auto">
-                            <span>Copyright &copy; strugglers &lt;/&gt; 2020</span>
+                            </div>
                         </div>
                     </div>
-                </footer>
+
+                </div>
             </div>
+
+
+
+            <!-- Footer -->
+                <div class="row">
+                    <footer class="sticky-footer bg-white">
+                        <div class="container my-auto">
+                            <div class="copyright text-center my-auto">
+                                <span>Copyright &copy; strugglers &lt;/&gt; 2020</span>
+                            </div>
+                        </div>
+                    </footer>
+                </div>
         </div>
         <!-- End of Content Wrapper -->
 

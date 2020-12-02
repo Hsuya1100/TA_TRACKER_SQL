@@ -354,31 +354,204 @@
                         </div>
                     <%} %> 
 
-                    <%//time and time left%>
+                    <!-- <%//time and time left%>
                     <div class="container " style="background-color: azure;" >
                         <div class="row"><h4>Deadlines</h4></div>
                         <div class="row" id="clock2"></div>
                         <div class="row" id="clock3"></div>
-                    </div>
-                    <!-- Page Heading -->
-                    <div class="container">
+                    </div> -->
 
-                        <% //assignment info list here %>
+
+                    <!-- Page Heading -->
+                    <div class="container-fluid">
+
                         <div class="row">
-                            <div class="col-md-4">  
-                                <h4 ><strong>course</strong>             <%= assignment_data.course %>             </h4>		
-                                <h4 ><strong>type</strong>               <%= assignment_data.type %>               </h4>		
-                                <h4 ><strong>deadlineRubriks</strong>    <%= assignment_data.deadline_rubriks %>    </h4>		
-                                <h4 ><strong>deadlineEvaluation</strong> <%= assignment_data.deadline_eval %> </h4>		
-                                <h4 ><strong>created_at</strong>         <%= assignment_data.created_at %>         </h4>				
-                                <h4 ><strong>Usernames of Students assigned:</strong>  								</h4>				
-                
-                                <% students.forEach(function(eachStudent){ %>
-                                    <li> <%= eachStudent.username %></li>
-                                <% }) %>				
+
+                            <!-- course Card Example -->
+                            <div class="col-xl-3 col-md-6 mb-4">
+                                <div class="card border-left-primary shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                    Course</div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800"><%= assignment_data.course %></div>
+                                                <!-- <div class="h5 mb-0 font-weight-bold text-gray-800"><%= assignment_data.name %></div> -->
+                                                <!-- <div class="h5 mb-0 font-weight-bold text-gray-800"><%=assignment_data.type%></div> -->
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-book fa-2x text-gray-300"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- sem Example -->
+                            <div class="col-xl-3 col-md-6 mb-4">
+                                <div class="card border-left-success shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                    Type</div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800"><%=assignment_data.type%></div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xl-3 col-md-6 mb-4">
+                                <div class="card border-left-primary shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                    Assignment No</div>
+                                                <!-- <div class="h5 mb-0 font-weight-bold text-gray-800"><%= assignment_data.course %></div> -->
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800"><%= assignment_data.name %></div>
+                                                <!-- <div class="h5 mb-0 font-weight-bold text-gray-800"><%=assignment_data.type%></div> -->
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-book fa-2x text-gray-300"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- asisstant Card Example -->
+                            <div class="col-xl-3 col-md-6 mb-4">
+                                <div class="card border-left-primary shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                    deadlineRubriks</div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800"><%=assignment_data.deadline_rubriks%></div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- asisstant Card Example -->
+                            <div class="col-xl-3 col-md-6 mb-4">
+                                <div class="card border-left-secondary shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                    deadlineEvaluation</div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800"><%=assignment_data.deadline_eval%></div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <!-- asisstant Card Example -->
+                            <div class="col-xl-3 col-md-6 mb-4">
+                                <div class="card border-left-warning shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                    created_at</div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800"><%=assignment_data.created_at%></div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+            
+                        </div>
+                        <!-- ======================== -->
+                        <div class="row">
+                            <div class="col col-lg-12">
+                                <h1 class="h3 mb-4 text-gray-700">Assigned Students</h1>
+                                <table id="dtBasicExample2" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+                                    <thead>
+                                        <tr>
+                                        <th class="th-sm">Username
+                                        </th>
+                                        <th class="th-sm">Name
+                                        </th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <% students.forEach(function(eachStudent){ %>
+                                            <tr>
+                                                <td> <%=eachStudent.username %> </td>		
+                                                <td> <%=eachStudent.name %> </td>
+                                            </tr>
+                                        <% }) %>	
+                                    </tbody>
+                                </table>                              
                             </div>
                         </div>
+                        <br>
+
                         <div class="row">
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                View Rubrics</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><a href="/courses/<%=CID%>/assignment/<%=assignment_data.id%>/rubrics/view" class="btn btn-md btn-primary">View Rubrics<i class="fas fa fa-1x"></i></a></div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-book fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <%console.log(rubrics_data) %>
+                        <% if(rubrics_data == undefined || rubrics_data == null){%>
+
+                            <div class="col-xl-3 col-md-6 mb-4">
+                                <div class="card border-left-primary shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                    Add Rubrics</div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800"><a href="/courses/<%=CID%>/assignment/<%=assignment_data.id%>/rubrics/add" class="btn btn-md btn-primary">add Rubrics<i class="fas fa fa-1x"></i></a></div>
+                                                
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-book fa-2x text-gray-300"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        <% } %>
+                        </div>
+
+
+                        <!-- <div class="row">
                             <div class="col-md-4">  
                 
                             </div>
@@ -389,12 +562,9 @@
                                 <a href="/courses/<%=CID%>/assignment/<%=assignment_data.id%>/rubrics/add" class="btn btn-md btn-info">add Rubrics</a>
                             <% } %>
                             
-                        </div>
-                
-                    </div>
-                
-                    <%//submission info %>
-                    <div class="container">
+                        </div> -->
+
+
                         <%
                             var v = "http://localhost:3000";
                             var allPaths = {};
@@ -410,8 +580,109 @@
                             })
                             
                         %>
+
+
+                        <div class="row">
+                            <div class="col col-lg-12">
+                                <h1 class="h3 mb-4 text-gray-700">Add Marks </h1>
+                                <table id="dtBasicExample2" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+                                    <thead>
+                                        <tr>
+                                        <th class="th-sm">Submission ID
+                                        </th>
+                                        <th class="th-sm">Student ID
+                                        </th>
+                                        <th class="th-sm">Student Name
+                                        </th>
+                                        <th class="th-sm">Assignment Nmae
+                                        </th>
+                                        <th class="th-sm">View Submission
+                                        </th>
+                                        <th class="th-sm">Marks
+                                        </th>
+                                        <th class="th-sm">Add Marks
+                                        </th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <% submission_data.forEach(function(sdata){ %>
+                                            <tr>
+                                                <td> <%=sdata.Subid %> </td>		
+                                                <td> <%=sdata.Sid %> </td>
+                                                <td> <%=sdata.s_name %> </td>
+                                                <td> <%= sdata.a_name %> </td>
+                                                <td> <a href="<%= allPaths[sdata.sub_id] %>" class="btn btn-md btn-info">  <%= sdata.a_name %> </a> </td>
+                                                <td> <%= sdata.marks %> </td>
+                                                <td>        
+                                                    <form class="form-inline" action="/courses/<%=CID%>/assignment/<%=assignment_data.id%>/marksupdate/<%= sdata.Subid %>" method="POST">
+                                                        <div class="form-group">
+                                                            <input class="form-control" placeholder="marks" name="marks" type="text" <%=str%>>
+                                                            <button class="btn btn-primary btn-sm" <%=str%>>Add Marks</button>
+                                                        </div>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        <% }) %>	
+                                    </tbody>
+                                </table>                              
+                            </div>
+                        </div>
+                        <br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        <!-- <% //assignment info list here %> -->
+                        <!-- <div class="row">
+                            <div class="col-md-4">  
+                                <h4 ><strong>course</strong>             <%= assignment_data.course %>             </h4>		
+                                <h4 ><strong>type</strong>               <%= assignment_data.type %>               </h4>		
+                                <h4 ><strong>deadlineRubriks</strong>    <%= assignment_data.deadline_rubriks %>    </h4>		
+                                <h4 ><strong>deadlineEvaluation</strong> <%= assignment_data.deadline_eval %> </h4>		
+                                <h4 ><strong>created_at</strong>         <%= assignment_data.created_at %>         </h4>				
+                                <h4 ><strong>Usernames of Students assigned:</strong>  								</h4>				
                 
-                      <div class="container">
+                                <% students.forEach(function(eachStudent){ %>
+                                    <li> <%= eachStudent.username %></li>
+                                <% }) %>				
+                            </div>
+                        </div> -->
+
+
+                
+                    </div>
+                
+                    <%//submission info %>
+                    <div class="container-fluid">
+                        <!-- <%
+                            var v = "http://localhost:3000";
+                            var allPaths = {};
+                            submission_data.forEach(function(sdata){
+                               var path = sdata.a_path.split( '/' );
+                               pos = path.indexOf("public");
+                               newPath="";
+                               console.log(path+" "+pos);
+                               for(var i=pos+1;i<path.length;i++){
+                                   newPath = newPath +"/"+ path[i]
+                               }
+                               allPaths[sdata.id]= newPath;
+                            })
+                            
+                        %> -->
+                
+                      <!-- <div class="container">
                         <div class="row">
                            <div class="col-md-2">  <strong> Submission ID </strong>  </div>
                            <div class="col-md-2">  <strong> Student ID </strong> </div>
@@ -435,9 +706,9 @@
                                         <input class="form-control" placeholder="marks" name="marks" type="text" <%=str%>>
                                         <button class="btn btn-md btn-info btn-block" <%=str%>>Add Marks</button>
                                     </div>
-                                  </form>
+                                </form>
                             </div>
-                            <% }) %>
+                            <% }) %> -->
                         <form  action="/courses/<%=CID%>/assignment/<%=assignment_data.id%>/marksfreeze" method="POST">
                             <button  class="btn btn-primary btn-lg" <%=str%> >Freeze Marks</button>
                         </form>
@@ -470,7 +741,7 @@
                             <button  class="btn btn-primary btn-lg" <%=queryY%>>Remove Queries</button>
                         </form>	
                 
-                       </div>
+                    </div>
                 
                     <!-- /.container-fluid -->
                 </div>

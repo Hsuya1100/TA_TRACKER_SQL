@@ -17,13 +17,23 @@
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
+    <!-- MDBootstrap Datatables  -->
+    <link href="/css/addons/datatables.min.css" rel="stylesheet">
+
     <!-- Custom styles for this template-->
     <link href="/css/sb-admin-2.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
 
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
-	
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> -->
+<style type="text/css">
+    #approvebutton,#declinebutton{
+        display: inline;
+    }
+    #approvebutton{
+        margin-right: 20px; 
+    }
+</style>	
 
 </head>
 
@@ -331,69 +341,119 @@
 <!-- ------------------------------___CONTENT___--------------------------------------------------- -->
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-                    <h1 class="h3 mb-4 text-gray-800">Rubrics</h1>
-                    <%	if(error && error.length>0){ %>
-                        <div class="container">
-                            <div class="alert alert-danger" role="alert">
-                                <h4><%= error %></h4>
-                            </div>
-                        </div>
-                    <%	} %>
-                    <% if(success && success.length>0){ %>	
-                        <div class="container">
-                            <div class="alert alert-success" role="alert">
-                                <h4><%= success %></h4>
-                            </div>
-                        </div>
-                    <%} %> 
-                    <% if(warning && warning.length>0){ %>	
-                        <div class="container">
-                            <div class="alert alert-warning" role="alert">
-                                <h4><%= warning %></h4>
-                            </div>
-                        </div>
-                    <%} %> 
 
                     <!-- Page Heading -->
-            <!-- End of Main Content -->
+                    <div class="row">
 
-            <div class="container">
-        
-                <% //submission info list here %>
-                <div class="container">
-                    <div class="row">  
-                        <h4 ><strong>Assignment id-</strong>             <%= rubrics_data.a_id %>             </h4>		
-                    </div>
-                    <div class="row">  
-                        <h4 ><strong>TA id:-</strong>               <%= rubrics_data.t_id %>               </h4>		
-                    </div>
-                    <div class="row">  
-                        <h4 ><strong> Name      :-</strong>    <%= rubrics_data.image %>    </h4>		
-                    </div>
-                    <div class="row">  
-                        <h4 ><strong> Created at:-</strong>    <%= rubrics_data.date_time %>    </h4>
-                    </div>
-                    <div class="row" id="approved">  
-                        <div class="col-lg-3" >  
-                            <h4 id="approval_text"> Approval Pending </h4>
+                        <!-- name Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                Assignment ID</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><%=rubrics_data.a_id%></div>
+                                            <br>
+                                         </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-book fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-lg-9" >  
-                            <%if ( user.type === "Professor" && rubrics_data.approved == 0){  %>
-                                <form  style="width=2px" id="approvebutton" action="/courses/<%=rubrics_data.c_id%>/assignment/<%=rubrics_data.a_id%>/rubrics/approve" method="POST">
-                                    <button href="" class="btn btn-md btn-success">Accept</button>
-                                </form>
-                                <form  id="declinebutton" action="/courses/<%=rubrics_data.c_id%>/assignment/<%=rubrics_data.a_id%>/rubrics/decline" method="POST">
-                                    <button href="" class="btn btn-md btn-danger">Decline</button>
-                                </form>
-                            <%}%>
+
+                        <!-- course Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-success shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                TA ID </div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><%= rubrics_data.t_id%> </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        
+
+                        <!-- type Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-info shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1"> 
+                                               Created on
+                                            </div>
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col-auto">
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><%= rubrics_data.date_time%></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- created on Example -->
+                        <% if(rubrics_data.approved == 0){  %>
+                            <div class="col-xl-3 col-md-6 mb-4">
+                                <div class="card border-left-warning shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">  Status </div>
+                                                <div class="text-sm font-weight-bold text-warning text mb-1"> Approval Pending</div>
+                                                
+                                                <%if ( user.type === "Professor"){  %>
+                                                    <br>
+                                                    <form  style="width=2px" id="approvebutton" action="/courses/<%=rubrics_data.c_id%>/assignment/<%=rubrics_data.a_id%>/rubrics/approve" method="POST">
+                                                        <button class="btn btn-sm btn-success"> Accept <i class="fas fa fa-1x"></i></button>
+                                                    </form>
+                                                    <form  id="declinebutton" action="/courses/<%=rubrics_data.c_id%>/assignment/<%=rubrics_data.a_id%>/rubrics/decline" method="POST">
+                                                        <button class="btn btn-sm btn-danger"> Decline <i class="fas fa fa-1x"></i></button>
+                                                    </form>
+                                                <%}%>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <% }  else{  %>
+                            <div class="col-xl-3 col-md-6 mb-4">
+                                <div class="card border-left-success shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">  Status </div>
+                                                <br>
+                                                <div class="text-sm font-weight-bold text-success text mb-1"> Approved</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <% } %>
                     </div>
+            
                     <div class="row">  
-                        <h4 ><strong>Rubrics:-</strong>    <a href="http://localhost:3000/Rubrics/<%=rubrics_data.image%>" target="_blank" class="btn btn-md btn-primary">  View/Download </a> </h4>
+                        <div class="col-md-6">
+                            <h5 class="h5 mb-4 text-gray-800">View/Download Rubrics :    <a href="http://localhost:3000/Rubrics/<%=rubrics_data.image%>" target="_blank"><button class="btn btn-md btn-primary"> View <i class="fas fa fa-1x"></i></button> </a> </h5>
+                        </div>
                     </div>
-                </div>
-            </div>
+                <!-- </div>
+            </div> -->
             <!-- Footer -->
             <div class="row">
                 <footer class="sticky-footer bg-white">
