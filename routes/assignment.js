@@ -212,7 +212,7 @@ router.get("/:Aid",middleware.isLoggedIn,function(req,res){
 				    var params= [req.user.id,req.params.Aid];
 				    var submission_data = await queryExecute(query,params);
 				    var query3= 'select * from query where Aid = ? and Sid = ?';
-					let query_data = await queryExecute(query3 ,[req.params.id,req.user.id]);
+					let query_data = await queryExecute(query3 ,[req.params.Aid,req.user.id]);
 				    res.render("./assignment/info_Student.ejs", {user:req.user,CID:req.params.id, assignment_data:assignment_data[0],asisstant_data:asisstant_data,submission_data:submission_data,query_data: query_data});
 				}
 	        }
