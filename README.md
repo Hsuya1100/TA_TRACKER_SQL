@@ -4,6 +4,7 @@
 
 + install [guide](https://dev.mysql.com/doc/mysql-apt-repo-quick-guide/en/) mysql USE METHOD-2 :
 + mysql [configuration](https://hackernoon.com/mysql-note-create-admin-user-5e77b43ecc8e) LINUX --Create New User and Grant All PRIVILEGES
++ npm with nodejs [install guide](https://tecadmin.net/install-latest-nodejs-npm-on-ubuntu/)
 
 ## launch  (run without proxy in terminal)
 + command: npm install
